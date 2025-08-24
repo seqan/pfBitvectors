@@ -50,5 +50,6 @@ endif ()
 if (PFBITVECTORS_TESTS)
     enable_testing()
     add_subdirectory(src/test_pfBitvectors)
+    add_subdirectory(src/test_header)
 endif ()
 

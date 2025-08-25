@@ -14,30 +14,6 @@
 #include <nanobench.h>
 
 using AllBitvectors = std::variant<
-    seqan::pfb::Bitvector<  64>,
-    seqan::pfb::Bitvector< 128>,
-    seqan::pfb::Bitvector< 256>,
-    seqan::pfb::Bitvector< 512>,
-    seqan::pfb::Bitvector<1024>,
-    seqan::pfb::Bitvector<2048>,
-    seqan::pfb::PairedBitvector<  64>,
-    seqan::pfb::PairedBitvector< 128>,
-    seqan::pfb::PairedBitvector< 256>,
-    seqan::pfb::PairedBitvector< 512>,
-    seqan::pfb::PairedBitvector<1024>,
-    seqan::pfb::PairedBitvector<2048>,
-    seqan::pfb::Bitvector<  64, 65536>,
-    seqan::pfb::Bitvector< 128, 65536>,
-    seqan::pfb::Bitvector< 256, 65536>,
-    seqan::pfb::Bitvector< 512, 65536>,
-    seqan::pfb::Bitvector<1024, 65536>,
-    seqan::pfb::Bitvector<2048, 65536>,
-    seqan::pfb::PairedBitvector<  64, 65536>,
-    seqan::pfb::PairedBitvector< 128, 65536>,
-    seqan::pfb::PairedBitvector< 256, 65536>,
-    seqan::pfb::PairedBitvector< 512, 65536>,
-    seqan::pfb::PairedBitvector<1024, 65536>,
-    seqan::pfb::PairedBitvector<2048, 65536>,
 #ifdef PFBITVECTORS_USE_PASTA
     seqan::pfb::FlatRank,
     seqan::pfb::WideRank,
@@ -49,6 +25,33 @@ using AllBitvectors = std::variant<
 #ifdef PFBITVECTORS_USE_SUX
     seqan::pfb::Rank9,
 #endif
+// Single layer bitvectors
+//    seqan::pfb::Bitvector<  64>,
+//    seqan::pfb::Bitvector< 128>,
+//    seqan::pfb::Bitvector< 256>,
+//    seqan::pfb::Bitvector< 512>,
+//    seqan::pfb::Bitvector<1024>,
+//    seqan::pfb::Bitvector<2048>,
+//    seqan::pfb::PairedBitvector<  64>,
+//    seqan::pfb::PairedBitvector< 128>,
+//    seqan::pfb::PairedBitvector< 256>,
+//    seqan::pfb::PairedBitvector< 512>,
+//    seqan::pfb::PairedBitvector<1024>,
+//    seqan::pfb::PairedBitvector<2048>,
+
+// Two layer bitvectors
+    seqan::pfb::Bitvector<  64, 65536>,
+//    seqan::pfb::Bitvector< 128, 65536>,
+//    seqan::pfb::Bitvector< 256, 65536>,
+    seqan::pfb::Bitvector< 512, 65536>,
+//    seqan::pfb::Bitvector<1024, 65536>,
+//    seqan::pfb::Bitvector<2048, 65536>,
+    seqan::pfb::PairedBitvector<  64, 65536>,
+//    seqan::pfb::PairedBitvector< 128, 65536>,
+//    seqan::pfb::PairedBitvector< 256, 65536>,
+    seqan::pfb::PairedBitvector< 512, 65536>,
+//    seqan::pfb::PairedBitvector<1024, 65536>,
+//    seqan::pfb::PairedBitvector<2048, 65536>,
     std::monostate /*delimiter, is ignored*/
 >;
 

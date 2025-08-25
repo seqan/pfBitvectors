@@ -141,8 +141,8 @@ TEST_CASE("benchmark bit vectors rank and symbol run times", "[bitvector][time][
                   .relative(true);
 
         bench_rank.epochs(20);
-        bench_rank.minEpochTime(std::chrono::milliseconds{1});
-//        bench_rank.minEpochIterations(1'000'000);
+        bench_rank.minEpochTime(std::chrono::milliseconds{10});
+        bench_rank.minEpochIterations(1'000'000);
 
         call_with_templates([&]<typename Vector>() {
 

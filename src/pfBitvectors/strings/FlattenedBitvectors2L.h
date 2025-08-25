@@ -2,9 +2,13 @@
 // SPDX-License-Identifier: BSD-3-Clause
 #pragma once
 
+#include "../AlignedBitset.h"
 #include "../ternarylogic.h"
 #include "../utils.h"
 
+#include <bit>
+#include <limits>
+#include <span>
 #include <vector>
 
 #if __has_include(<cereal/types/array.hpp>) \

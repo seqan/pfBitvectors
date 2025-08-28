@@ -94,6 +94,10 @@ struct MultiBitvector {
     }
 };
 
+template <size_t TSigma>
+using MultiBitvectorFixed = MultiBitvector<TSigma, Bitvector<512, 65536>>;
+
+
 /*template <uint64_t TSigma>
 using MultiBitvector_Bitvector = MultiBitvector<TSigma>;
 

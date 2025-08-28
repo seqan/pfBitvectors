@@ -219,6 +219,9 @@ struct PairedBitvector2L {
         ar(l0, l1, totalLength, bits);
     }
 };
+
+template <size_t l1_bits_ct, size_t l0_bits_ct, bool Align=true>
+using PairedBitvector2LShift = PairedBitvector2L<l1_bits_ct, l0_bits_ct, Align, true>;
 //using PairedL0L1_64_4kBitvector   = PairedBitvector2L<64, 4096>;
 //using PairedL0L1_128_4kBitvector  = PairedBitvector2L<128, 4096>;
 //using PairedL0L1_256_4kBitvector  = PairedBitvector2L<256, 4096>;

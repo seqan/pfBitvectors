@@ -11,9 +11,9 @@ add_executable(${PROJECT_NAME}
     benchmark_strings_alphabet_16.cpp
     benchmark_strings_alphabet_21.cpp
     benchmark_strings_alphabet_255.cpp
-    benchmark_strings_alphabet_4096.cpp
-    benchmark_strings_alphabet_16384.cpp
-    benchmark_strings_alphabet_65536.cpp
+#    benchmark_strings_alphabet_4096.cpp
+#    benchmark_strings_alphabet_16384.cpp
+#    benchmark_strings_alphabet_65536.cpp
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Catch2::Catch2WithMain

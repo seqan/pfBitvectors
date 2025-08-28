@@ -3,27 +3,25 @@
 // SPDX-License-Identifier: BSD-3-Clause
 #pragma once
 
-#include "../bitvector/Bitvector.h"
-#include "concepts.h"
-#include "utils.h"
+#include "../bitvectors/Bitvector.h"
+#include "../utils.h"
 
-#include <bitset>
 #include <ranges>
 #include <vector>
 
-namespace fmc::string {
+namespace seqan::pfb {
 
-template <size_t TSigma, Bitvector_c Bitvector = ::fmc::bitvector::Bitvector>
+template <size_t TSigma, typename TBitvector = Bitvector<512, 65536>>
 struct MultiBitvector {
     static constexpr size_t Sigma = TSigma;
 
-    std::array<Bitvector, TSigma> bitvectors{};
+    std::array<TBitvector, TSigma> bitvectors{};
 
     MultiBitvector() = default;
 
     MultiBitvector(std::span<uint8_t const> _symbols) {
         for (size_t sym{0}; sym < Sigma; ++sym) {
-            bitvectors[sym] = Bitvector(std::views::iota(size_t{}, _symbols.size())
+            bitvectors[sym] = TBitvector(std::views::iota(size_t{}, _symbols.size())
                                         | std::views::transform([&](size_t idx) {
                                             return _symbols[idx] == sym;
                                         }));
@@ -96,9 +94,13 @@ struct MultiBitvector {
     }
 };
 
-template <uint64_t TSigma>
+template <size_t TSigma>
+using MultiBitvectorFixed = MultiBitvector<TSigma, Bitvector<512, 65536>>;
+
+
+/*template <uint64_t TSigma>
 using MultiBitvector_Bitvector = MultiBitvector<TSigma>;
 
-static_assert(checkString_c<MultiBitvector_Bitvector>);
+static_assert(checkString_c<MultiBitvector_Bitvector>);*/
 
 }

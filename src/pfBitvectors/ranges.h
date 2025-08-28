@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 #pragma once
 
+#include <bitset>
 #include <ranges>
 #include <seqan-std/chunk_view.hpp>
 

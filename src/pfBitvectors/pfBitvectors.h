@@ -7,3 +7,4 @@
 #include "bitvectors/PairedBitvector.h"
 #include "strings/FlattenedBitvectors2L.h"
 #include "strings/PairedFlattenedBitvectors2L.h"
+#include "strings/MultiBitvector.h"

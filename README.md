@@ -71,6 +71,27 @@ int main() {
 }
 ```
 
+## Benchmarks
+To recreate the benchmarks from the paper *Engineering rank queries on bit vectors and strings*, you must use clang in version 20.
+
+For bit vector benchmarks run:
+```
+BITVECTORSIZE=64000000 ./bin/benchmark_pfBitvectors '[bitvector][rank]'
+BITVECTORSIZE=256000000 ./bin/benchmark_pfBitvectors '[bitvector][rank]'
+BITVECTORSIZE=1000000000 ./bin/benchmark_pfBitvectors '[bitvector][rank]'
+BITVECTORSIZE=4000000000 ./bin/benchmark_pfBitvectors '[bitvector][rank]'
+BITVECTORSIZE=16000000000 ./bin/benchmark_pfBitvectors '[bitvector][rank]'
+```
+
+For string benchmarks run:
+```
+STRINGSIZE=1000000000 ./bin/benchmark_pfBitvectors '[rank][string][4]'
+STRINGSIZE=1000000000 ./bin/benchmark_pfBitvectors '[rank][string][5]'
+STRINGSIZE=1000000000 ./bin/benchmark_pfBitvectors '[rank][string][16]'
+STRINGSIZE=1000000000 ./bin/benchmark_pfBitvectors '[rank][string][21]'
+STRINGSIZE=1000000000 ./bin/benchmark_pfBitvectors '[rank][string][255]'
+```
+
 
 ## Citation
 For academic work please cite:

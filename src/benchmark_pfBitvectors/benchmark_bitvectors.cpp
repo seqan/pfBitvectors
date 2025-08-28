@@ -46,6 +46,13 @@ using AllBitvectors = std::variant<
     seqan::pfb::Bitvector< 512, 65536>,
 //    seqan::pfb::Bitvector<1024, 65536>,
 //    seqan::pfb::Bitvector<2048, 65536>,
+    seqan::pfb::PairedBitvector2LShift<  64, 65536>,
+//    seqan::pfb::PairedBitvector2LShift< 128, 65536>,
+//    seqan::pfb::PairedBitvector2LShift< 256, 65536>,
+    seqan::pfb::PairedBitvector2LShift< 512, 65536>,
+//    seqan::pfb::PairedBitvector2LShift<1024, 65536>,
+//    seqan::pfb::PairedBitvector2LShift<2048, 65536>,
+
     seqan::pfb::PairedBitvector<  64, 65536>,
 //    seqan::pfb::PairedBitvector< 128, 65536>,
 //    seqan::pfb::PairedBitvector< 256, 65536>,

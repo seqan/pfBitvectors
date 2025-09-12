@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Knut Reinert & Freie Universität Berlin
 // SPDX-FileCopyrightText: 2025 Knut Reinert & MPI für molekulare Genetik
 // SPDX-License-Identifier: CC0-1.0
+#pragma once
 
 #ifdef PFBITVECTORS_USE_PASTA
 #include "bitvectors/Pasta_FlatRank.h"

@@ -95,7 +95,7 @@ struct FlattenedBitvectors2L {
             uint64_t symb{};
             for (uint64_t i{bitct}; i > 0; --i) {
                 auto b = bits[i-1].test(idx);
-                symb = (symb<<1) | b;
+                symb = (symb<<1) | static_cast<uint64_t>(b);
             }
             assert(symb < Sigma);
             return symb;

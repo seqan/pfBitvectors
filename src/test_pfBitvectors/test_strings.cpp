@@ -24,7 +24,6 @@ using AllStrings = Variant<
     Instance<seqan::pfb::FlattenedBitvectors2L, 1024, 65536>::Type,
     Instance<seqan::pfb::FlattenedBitvectors2L, 2048, 65536>::Type,
     Instance<seqan::pfb::PairedFlattenedBitvectors2L,   64, 65536>::Type,
-    Instance<seqan::pfb::PairedFlattenedBitvectors2L,  128, 65536>::Type,
     Instance<seqan::pfb::PairedFlattenedBitvectors2L,  256, 65536>::Type,
     Instance<seqan::pfb::PairedFlattenedBitvectors2L,  512, 65536>::Type,
     Instance<seqan::pfb::PairedFlattenedBitvectors2L, 1024, 65536>::Type,

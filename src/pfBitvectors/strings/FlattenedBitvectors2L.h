@@ -95,7 +95,7 @@ struct FlattenedBitvectors2L {
             uint64_t symb{};
             for (uint64_t i{bitct}; i > 0; --i) {
                 auto b = bits[i-1].test(idx);
-                symb = (symb<<1) | b;
+                symb = (symb<<1) | static_cast<uint64_t>(b);
             }
             assert(symb < Sigma);
             return symb;
@@ -312,51 +312,5 @@ public:
         ar(l0, l1, bits, totalLength);
     }
 };
-
-//template <size_t Sigma> using FlattenedBitvectors_64_4k   = FlattenedBitvectors2L<Sigma, 64, 4096>;
-//template <size_t Sigma> using FlattenedBitvectors_128_4k  = FlattenedBitvectors2L<Sigma, 128, 4096>;
-//template <size_t Sigma> using FlattenedBitvectors_256_4k  = FlattenedBitvectors2L<Sigma, 256, 4096>;
-//template <size_t Sigma> using FlattenedBitvectors_512_4k  = FlattenedBitvectors2L<Sigma, 512, 4096>;
-//template <size_t Sigma> using FlattenedBitvectors_1024_4k = FlattenedBitvectors2L<Sigma, 1024, 4096>;
-//template <size_t Sigma> using FlattenedBitvectors_2048_4k = FlattenedBitvectors2L<Sigma, 2048, 4096>;
-//
-//static_assert(checkString_c<FlattenedBitvectors_64_4k>);
-//static_assert(checkString_c<FlattenedBitvectors_128_4k>);
-//static_assert(checkString_c<FlattenedBitvectors_256_4k>);
-//static_assert(checkString_c<FlattenedBitvectors_512_4k>);
-//static_assert(checkString_c<FlattenedBitvectors_1024_4k>);
-//static_assert(checkString_c<FlattenedBitvectors_2048_4k>);
-//
-//template <size_t Sigma> using FlattenedBitvectors_64_64k   = FlattenedBitvectors2L<Sigma, 64, 65536>;
-//template <size_t Sigma> using FlattenedBitvectors_128_64k  = FlattenedBitvectors2L<Sigma, 128, 65536>;
-//template <size_t Sigma> using FlattenedBitvectors_256_64k  = FlattenedBitvectors2L<Sigma, 256, 65536>;
-//template <size_t Sigma> using FlattenedBitvectors_512_64k  = FlattenedBitvectors2L<Sigma, 512, 65536>;
-//template <size_t Sigma> using FlattenedBitvectors_1024_64k = FlattenedBitvectors2L<Sigma, 1024, 65536>;
-//template <size_t Sigma> using FlattenedBitvectors_2048_64k = FlattenedBitvectors2L<Sigma, 2048, 65536>;
-//template <size_t Sigma> using FlattenedBitvectors_4096_64k = FlattenedBitvectors2L<Sigma, 4096, 65536>;
-//
-//static_assert(checkString_c<FlattenedBitvectors_64_64k>);
-//static_assert(checkString_c<FlattenedBitvectors_128_64k>);
-//static_assert(checkString_c<FlattenedBitvectors_256_64k>);
-//static_assert(checkString_c<FlattenedBitvectors_512_64k>);
-//static_assert(checkString_c<FlattenedBitvectors_1024_64k>);
-//static_assert(checkString_c<FlattenedBitvectors_2048_64k>);
-//static_assert(checkString_c<FlattenedBitvectors_4096_64k>);
-//
-//template <size_t Sigma> using FlattenedBitvectors_64_64kUA   = FlattenedBitvectors2L<Sigma, 64, 65536, false>;
-//template <size_t Sigma> using FlattenedBitvectors_128_64kUA  = FlattenedBitvectors2L<Sigma, 128, 65536, false>;
-//template <size_t Sigma> using FlattenedBitvectors_256_64kUA  = FlattenedBitvectors2L<Sigma, 256, 65536, false>;
-//template <size_t Sigma> using FlattenedBitvectors_512_64kUA  = FlattenedBitvectors2L<Sigma, 512, 65536, false>;
-//template <size_t Sigma> using FlattenedBitvectors_1024_64kUA = FlattenedBitvectors2L<Sigma, 1024, 65536, false>;
-//template <size_t Sigma> using FlattenedBitvectors_2048_64kUA = FlattenedBitvectors2L<Sigma, 2048, 65536, false>;
-//template <size_t Sigma> using FlattenedBitvectors_4096_64kUA = FlattenedBitvectors2L<Sigma, 4096, 65536, false>;
-//
-//static_assert(checkString_c<FlattenedBitvectors_64_64kUA>);
-//static_assert(checkString_c<FlattenedBitvectors_128_64kUA>);
-//static_assert(checkString_c<FlattenedBitvectors_256_64kUA>);
-//static_assert(checkString_c<FlattenedBitvectors_512_64kUA>);
-//static_assert(checkString_c<FlattenedBitvectors_1024_64kUA>);
-//static_assert(checkString_c<FlattenedBitvectors_2048_64kUA>);
-//static_assert(checkString_c<FlattenedBitvectors_4096_64kUA>);
 
 }

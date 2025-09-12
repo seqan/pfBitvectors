@@ -64,7 +64,7 @@ struct PairedBitvector1L {
     template <std::ranges::sized_range range_t>
         requires std::same_as<std::ranges::range_value_t<range_t>, std::bitset<bits_ct>>
     PairedBitvector1L(range_t&& _range) {
-        auto _length = _range.size()*bits_ct;
+        auto _length = static_cast<size_t>(_range.size()*bits_ct);
 
         l0.resize((_length+bits_ct)/(bits_ct*2) + 1);
         bits.resize(_length/bits_ct + 1);
@@ -138,33 +138,5 @@ struct PairedBitvector1L {
         ar(l0, totalLength, bits);
     }
 };
-
-//using PairedL0_64Bitvector  = PairedBitvector1L<64>;
-//using PairedL0_128Bitvector = PairedBitvector1L<128>;
-//using PairedL0_256Bitvector = PairedBitvector1L<256>;
-//using PairedL0_512Bitvector = PairedBitvector1L<512>;
-//using PairedL0_1024Bitvector = PairedBitvector1L<1024>;
-//using PairedL0_2048Bitvector = PairedBitvector1L<2048>;
-//
-//static_assert(Bitvector_c<PairedL0_64Bitvector>);
-//static_assert(Bitvector_c<PairedL0_128Bitvector>);
-//static_assert(Bitvector_c<PairedL0_256Bitvector>);
-//static_assert(Bitvector_c<PairedL0_512Bitvector>);
-//static_assert(Bitvector_c<PairedL0_1024Bitvector>);
-//static_assert(Bitvector_c<PairedL0_2048Bitvector>);
-//
-//using PairedL0_64BitvectorUA  = PairedBitvector1L<64, false>;
-//using PairedL0_128BitvectorUA = PairedBitvector1L<128, false>;
-//using PairedL0_256BitvectorUA = PairedBitvector1L<256, false>;
-//using PairedL0_512BitvectorUA = PairedBitvector1L<512, false>;
-//using PairedL0_1024BitvectorUA = PairedBitvector1L<1024, false>;
-//using PairedL0_2048BitvectorUA = PairedBitvector1L<2048, false>;
-//
-//static_assert(Bitvector_c<PairedL0_64BitvectorUA>);
-//static_assert(Bitvector_c<PairedL0_128BitvectorUA>);
-//static_assert(Bitvector_c<PairedL0_256BitvectorUA>);
-//static_assert(Bitvector_c<PairedL0_512BitvectorUA>);
-//static_assert(Bitvector_c<PairedL0_1024BitvectorUA>);
-//static_assert(Bitvector_c<PairedL0_2048BitvectorUA>);
 
 }

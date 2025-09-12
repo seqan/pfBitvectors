@@ -42,7 +42,7 @@ struct PairedFlattenedBitvectors2L {
             uint64_t symb{};
             for (uint64_t i{bitct}; i > 0; --i) {
                 auto b = bits[i-1].test(idx);
-                symb = (symb<<1) | b;
+                symb = (symb<<1) | static_cast<uint64_t>(b);
             }
             assert(symb < Sigma);
             return symb;
@@ -304,51 +304,5 @@ public:
         ar(l0, l1, bits, totalLength);
     }
 };
-
-/*template <size_t Sigma> using PairedFlattenedBitvectors_64_4k   = PairedFlattenedBitvectors2L<Sigma, 64, 4096>;
-template <size_t Sigma> using PairedFlattenedBitvectors_128_4k  = PairedFlattenedBitvectors2L<Sigma, 128, 4096>;
-template <size_t Sigma> using PairedFlattenedBitvectors_256_4k  = PairedFlattenedBitvectors2L<Sigma, 256, 4096>;
-template <size_t Sigma> using PairedFlattenedBitvectors_512_4k  = PairedFlattenedBitvectors2L<Sigma, 512, 4096>;
-template <size_t Sigma> using PairedFlattenedBitvectors_1024_4k = PairedFlattenedBitvectors2L<Sigma, 1024, 4096>;
-template <size_t Sigma> using PairedFlattenedBitvectors_2048_4k = PairedFlattenedBitvectors2L<Sigma, 2048, 4096>;
-
-static_assert(checkString_c<PairedFlattenedBitvectors_64_4k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_128_4k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_256_4k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_512_4k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_1024_4k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_2048_4k>);
-
-template <size_t Sigma> using PairedFlattenedBitvectors_64_64k   = PairedFlattenedBitvectors2L<Sigma, 64, 65536>;
-template <size_t Sigma> using PairedFlattenedBitvectors_128_64k  = PairedFlattenedBitvectors2L<Sigma, 128, 65536>;
-template <size_t Sigma> using PairedFlattenedBitvectors_256_64k  = PairedFlattenedBitvectors2L<Sigma, 256, 65536>;
-template <size_t Sigma> using PairedFlattenedBitvectors_512_64k  = PairedFlattenedBitvectors2L<Sigma, 512, 65536>;
-template <size_t Sigma> using PairedFlattenedBitvectors_1024_64k = PairedFlattenedBitvectors2L<Sigma, 1024, 65536>;
-template <size_t Sigma> using PairedFlattenedBitvectors_2048_64k = PairedFlattenedBitvectors2L<Sigma, 2048, 65536>;
-template <size_t Sigma> using PairedFlattenedBitvectors_4096_64k = PairedFlattenedBitvectors2L<Sigma, 4096, 65536>;
-
-static_assert(checkString_c<PairedFlattenedBitvectors_64_64k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_128_64k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_256_64k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_512_64k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_1024_64k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_2048_64k>);
-static_assert(checkString_c<PairedFlattenedBitvectors_4096_64k>);
-
-template <size_t Sigma> using PairedFlattenedBitvectors_64_64kUA   = PairedFlattenedBitvectors2L<Sigma, 64, 65536, false>;
-template <size_t Sigma> using PairedFlattenedBitvectors_128_64kUA  = PairedFlattenedBitvectors2L<Sigma, 128, 65536, false>;
-template <size_t Sigma> using PairedFlattenedBitvectors_256_64kUA  = PairedFlattenedBitvectors2L<Sigma, 256, 65536, false>;
-template <size_t Sigma> using PairedFlattenedBitvectors_512_64kUA  = PairedFlattenedBitvectors2L<Sigma, 512, 65536, false>;
-template <size_t Sigma> using PairedFlattenedBitvectors_1024_64kUA = PairedFlattenedBitvectors2L<Sigma, 1024, 65536, false>;
-template <size_t Sigma> using PairedFlattenedBitvectors_2048_64kUA = PairedFlattenedBitvectors2L<Sigma, 2048, 65536, false>;
-template <size_t Sigma> using PairedFlattenedBitvectors_4096_64kUA = PairedFlattenedBitvectors2L<Sigma, 4096, 65536, false>;
-
-static_assert(checkString_c<PairedFlattenedBitvectors_64_64kUA>);
-static_assert(checkString_c<PairedFlattenedBitvectors_128_64kUA>);
-static_assert(checkString_c<PairedFlattenedBitvectors_256_64kUA>);
-static_assert(checkString_c<PairedFlattenedBitvectors_512_64kUA>);
-static_assert(checkString_c<PairedFlattenedBitvectors_1024_64kUA>);
-static_assert(checkString_c<PairedFlattenedBitvectors_2048_64kUA>);
-static_assert(checkString_c<PairedFlattenedBitvectors_4096_64kUA>);*/
 
 }

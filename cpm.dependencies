@@ -20,9 +20,9 @@
     {
       "todo_if": "some if statement",
       "name": "fmt",
-      "version": "11.2.0",
+      "version": "11.2.0-git",
       "github_repository": "fmtlib/fmt",
-      "git_tag": "{VERSION}"
+      "git_tag": "36390db094afc48c47809ad9a6c9ced89b38551d"
     },
     {
       "name": "cereal",

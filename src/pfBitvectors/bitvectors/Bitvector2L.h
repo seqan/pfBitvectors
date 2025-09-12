@@ -66,7 +66,7 @@ struct Bitvector2L {
     template <std::ranges::sized_range range_t>
         requires std::same_as<std::ranges::range_value_t<range_t>, std::bitset<l1_bits_ct>>
     Bitvector2L(range_t&& _range) {
-        auto _length = _range.size()*l1_bits_ct;
+        auto _length = static_cast<size_t>(_range.size()*l1_bits_ct);
         l0.resize(_length/l0_bits_ct + 1);
         l1.resize(_length/l1_bits_ct + 1);
         bits.resize(_length/l1_bits_ct + 1);

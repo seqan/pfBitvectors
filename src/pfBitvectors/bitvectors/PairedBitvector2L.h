@@ -64,7 +64,7 @@ struct PairedBitvector2L {
     template <std::ranges::sized_range range_t>
         requires std::same_as<std::ranges::range_value_t<range_t>, std::bitset<l1_bits_ct>>
     PairedBitvector2L(range_t&& _range) {
-        auto _length = _range.size()*l1_bits_ct;
+        auto _length = static_cast<size_t>(_range.size()*l1_bits_ct);
 
         l0.resize((_length+l0_bits_ct)/(l0_bits_ct*2) + 1);
         l1.resize((_length+l1_bits_ct)/(l1_bits_ct*2) + 1);
@@ -222,62 +222,5 @@ struct PairedBitvector2L {
 
 template <size_t l1_bits_ct, size_t l0_bits_ct, bool Align=true>
 using PairedBitvector2LShift = PairedBitvector2L<l1_bits_ct, l0_bits_ct, Align, true>;
-//using PairedL0L1_64_4kBitvector   = PairedBitvector2L<64, 4096>;
-//using PairedL0L1_128_4kBitvector  = PairedBitvector2L<128, 4096>;
-//using PairedL0L1_256_4kBitvector  = PairedBitvector2L<256, 4096>;
-//using PairedL0L1_512_4kBitvector  = PairedBitvector2L<512, 4096>;
-//using PairedL0L1_1024_4kBitvector = PairedBitvector2L<1024, 4096>;
-//using PairedL0L1_2048_4kBitvector = PairedBitvector2L<2048, 4096>;
-//
-//static_assert(Bitvector_c<PairedL0L1_64_4kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_128_4kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_256_4kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_512_4kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_1024_4kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_2048_4kBitvector>);
-//
-//using PairedL0L1_64_64kBitvector   = PairedBitvector2L<64, 65536>;
-//using PairedL0L1_128_64kBitvector  = PairedBitvector2L<128, 65536>;
-//using PairedL0L1_256_64kBitvector  = PairedBitvector2L<256, 65536>;
-//using PairedL0L1_512_64kBitvector  = PairedBitvector2L<512, 65536>;
-//using PairedL0L1_1024_64kBitvector = PairedBitvector2L<1024, 65536>;
-//using PairedL0L1_2048_64kBitvector = PairedBitvector2L<2048, 65536>;
-//
-//static_assert(Bitvector_c<PairedL0L1_64_64kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_128_64kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_256_64kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_512_64kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_1024_64kBitvector>);
-//static_assert(Bitvector_c<PairedL0L1_2048_64kBitvector>);
-//
-//using PairedL0L1_64_64kBitvector_ShiftAndCount   = PairedBitvector2L<64, 65536, false, true>;
-//using PairedL0L1_128_64kBitvector_ShiftAndCount  = PairedBitvector2L<128, 65536, false, true>;
-//using PairedL0L1_256_64kBitvector_ShiftAndCount  = PairedBitvector2L<256, 65536, false, true>;
-//using PairedL0L1_512_64kBitvector_ShiftAndCount  = PairedBitvector2L<512, 65536, false, true>;
-//using PairedL0L1_1024_64kBitvector_ShiftAndCount = PairedBitvector2L<1024, 65536, false, true>;
-//using PairedL0L1_2048_64kBitvector_ShiftAndCount = PairedBitvector2L<2048, 65536, false, true>;
-//
-//static_assert(Bitvector_c<PairedL0L1_64_64kBitvector_ShiftAndCount>);
-//static_assert(Bitvector_c<PairedL0L1_128_64kBitvector_ShiftAndCount>);
-//static_assert(Bitvector_c<PairedL0L1_256_64kBitvector_ShiftAndCount>);
-//static_assert(Bitvector_c<PairedL0L1_512_64kBitvector_ShiftAndCount>);
-//static_assert(Bitvector_c<PairedL0L1_1024_64kBitvector_ShiftAndCount>);
-//static_assert(Bitvector_c<PairedL0L1_2048_64kBitvector_ShiftAndCount>);
-//
-//
-//using PairedL0L1_64_64kBitvectorUA   = PairedBitvector2L<64, 65536, false>;
-//using PairedL0L1_128_64kBitvectorUA  = PairedBitvector2L<128, 65536, false>;
-//using PairedL0L1_256_64kBitvectorUA  = PairedBitvector2L<256, 65536, false>;
-//using PairedL0L1_512_64kBitvectorUA  = PairedBitvector2L<512, 65536, false>;
-//using PairedL0L1_1024_64kBitvectorUA = PairedBitvector2L<1024, 65536, false>;
-//using PairedL0L1_2048_64kBitvectorUA = PairedBitvector2L<2048, 65536, false>;
-//
-//static_assert(Bitvector_c<PairedL0L1_64_64kBitvectorUA>);
-//static_assert(Bitvector_c<PairedL0L1_128_64kBitvectorUA>);
-//static_assert(Bitvector_c<PairedL0L1_256_64kBitvectorUA>);
-//static_assert(Bitvector_c<PairedL0L1_512_64kBitvectorUA>);
-//static_assert(Bitvector_c<PairedL0L1_1024_64kBitvectorUA>);
-//static_assert(Bitvector_c<PairedL0L1_2048_64kBitvectorUA>);
-
 
 }

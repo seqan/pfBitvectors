@@ -64,7 +64,7 @@ struct PairedBitvector1L {
     template <std::ranges::sized_range range_t>
         requires std::same_as<std::ranges::range_value_t<range_t>, std::bitset<bits_ct>>
     PairedBitvector1L(range_t&& _range) {
-        auto _length = _range.size()*bits_ct;
+        auto _length = static_cast<size_t>(_range.size()*bits_ct);
 
         l0.resize((_length+bits_ct)/(bits_ct*2) + 1);
         bits.resize(_length/bits_ct + 1);
